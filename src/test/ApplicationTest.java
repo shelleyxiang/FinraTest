@@ -18,11 +18,12 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.multipart.MultipartFile;
 
-import controller.FileUploadController;
-import dao.FileDao;
-import entity.File;
-import service.FileService;
-import service.FileServiceImp;
+import main.java.controller.FileUploadController;
+import main.java.dao.FileDao;
+import main.java.entity.File;
+import main.java.service.FileService;
+import main.java.service.FileServiceImp;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -62,7 +63,7 @@ public class ApplicationTest {
 
 	@Test
 	public void testSaveFile() throws IOException{
-		when(fileDao.save(file)).thenReturn(file);
+		when(FileDao.save(file)).thenReturn(file);
 		assertEquals(fileService.getFile(file.getId()).hashCode(), file.hashCode());
 		assertEquals(fileService.getFile(file.getId()).toString(), file.toString());
 		
